@@ -1,7 +1,8 @@
-package com.duing.service;
+package com.duing.service.impl;
 
 import com.duing.dao.UserDao;
 import com.duing.entity.User;
+import com.duing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
