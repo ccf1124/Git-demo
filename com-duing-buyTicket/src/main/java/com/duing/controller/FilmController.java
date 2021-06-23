@@ -4,6 +4,7 @@ import com.duing.service.FilmService;
 import com.duing.vo.FilmVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,5 +21,13 @@ public class FilmController {
     public List<FilmVo> selectAll() {
         List<FilmVo> filmVos = filmService.selectAll();
         return filmVos;
+    }
+
+    @RequestMapping("/home")
+    public String home(Model model) {
+        System.out.println("接收首页请求");
+        List<FilmVo> filmVoList = filmService.selectAll();
+        model.addAttribute("filmVoList", filmVoList);
+        return "home";
     }
 }
