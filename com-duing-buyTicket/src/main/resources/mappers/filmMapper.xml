@@ -9,4 +9,10 @@
         select id,film_id,`name`,director,player,`type`,country,`length`,synopsis,play_time,img_path
         from film
     </select>
+
+    <select id="getFilmById" resultType="com.duing.entity.Film">
+        select id,film_id,`name`,director,player,`type`,country,`length`,synopsis,play_time,img_path
+        from film
+        where film_id = #{filmId}
+    </select>
 </mapper>

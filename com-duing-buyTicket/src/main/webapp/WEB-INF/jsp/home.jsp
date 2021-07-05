@@ -10,6 +10,21 @@
 <html>
 <head>
     <title>Title</title>
+    <style type="text/css">
+        body {
+            background: #2E323B;
+        }
+
+        .piao {
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 238px;
+            padding: 6px;
+            line-height: 20px;
+            background: #5f5f6d;
+        }
+    </style>
 </head>
 <body>
 

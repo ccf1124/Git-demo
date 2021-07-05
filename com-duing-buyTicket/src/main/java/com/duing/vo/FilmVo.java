@@ -3,10 +3,10 @@ package com.duing.vo;
 // 视图层对象 用来展示给用户使用  view object
 public class FilmVo {
 
-    private String filmId;
-    private String name;
-    private String director;
-    private String imgPath;
+    private String filmId;//影片id
+    private String name;//名字
+    private String director;//描述
+    private String imgPath;//图片路径
 
     public String getFilmId() {
         return filmId;

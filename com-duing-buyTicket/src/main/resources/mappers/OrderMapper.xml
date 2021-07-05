@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duing.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.duing.entity.Order">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="play_id" jdbcType="VARCHAR" property="playId" />
+    <result column="seat_num" jdbcType="INTEGER" property="seatNum" />
+    <result column="seat" jdbcType="VARCHAR" property="seat" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.duing.entity.Order">
+    insert into `order` (id, order_id, create_time,
+      price, play_id, seat_num, 
+      seat, user_id)
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{price,jdbcType=DECIMAL}, #{playId,jdbcType=VARCHAR}, #{seatNum,jdbcType=INTEGER}, 
+      #{seat,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.duing.entity.Order">
+    update `order`
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=DECIMAL},
+      play_id = #{playId,jdbcType=VARCHAR},
+      seat_num = #{seatNum,jdbcType=INTEGER},
+      seat = #{seat,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, order_id, create_time, price, play_id, seat_num, seat, user_id
+    from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, order_id, create_time, price, play_id, seat_num, seat, user_id
+    from `order`
+  </select>
+
+  <select id="getOrdersByPlayId" resultMap="BaseResultMap">
+    select id, order_id, create_time, price, play_id, seat_num, seat, user_id
+    from `order`
+    where play_id = #{playId}
+  </select>
+</mapper>

@@ -10,15 +10,15 @@ public class Film implements Serializable {
 
     private long id;
     private String film_id;  // filmId 驼峰也可  需要额外配置
-    private String name;
-    private String director;
-    private String player;
-    private String type;
-    private String country;
-    private int length;
-    private String synopsis;
-    private Date play_time;
-    private String img_path;
+    private String name;//影片名字
+    private String director;//描述
+    private String player;//主演
+    private String type;//类型
+    private String country;//国家
+    private int length;//长度（时长）
+    private String synopsis;//简介
+    private Date play_time;//放映时间
+    private String img_path;//图片路径
 
     public long getId() {
         return id;
